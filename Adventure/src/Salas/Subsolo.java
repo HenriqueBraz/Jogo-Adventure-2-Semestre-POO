@@ -11,6 +11,7 @@ import Ferramentas.BombaNeutrons;
 import Ferramentas.Lanterna;
 import Ferramentas.PistolaLaser;
 import ObjetosCriados.Esqueleto;
+import java.util.Scanner;
 
 /**
  *
@@ -30,7 +31,7 @@ public class Subsolo extends Sala {
         bombaNeutrons = new BombaNeutrons();
         this.getFerramentas().put(bombaNeutrons.getDescricao(), bombaNeutrons);
         esqueleto = new Esqueleto();
-        this.getObjetos().put("Monte de ossos", esqueleto);
+        this.getObjetos().put("Esqueleto", esqueleto);
 
     }
 
@@ -44,7 +45,7 @@ public class Subsolo extends Sala {
             descricao.append("sem a menor possibilidade de enxergar nada. \n");
         }
 
-        if (!escuro) {
+        if (!escuro && esqueleto.isAcaoOk() == false) {
             descricao.append("Você acende sua lanterna e a sala se ilumina, revelando que não há portas,\n");
             descricao.append("porém você nota uma grande janela no alto da sala, que não pode ser alcançada. \n");
             descricao.append("A sua direita você se depara com um esqueleto de um humanóide gigante,\n");
@@ -52,6 +53,7 @@ public class Subsolo extends Sala {
             descricao.append("Ao examinar o humanóide, você encontra uma \n");
             descricao.append("BombaNeutrons escondida. Olha aí a sorte te ajudando de novo...\n");
             descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
+            descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
         }
 
         if (!escuro && esqueleto.isAcaoOk() == true) {
@@ -99,5 +101,7 @@ public class Subsolo extends Sala {
         }
         return aux;
     }
+    
+     Scanner in = new Scanner(System.in);
 
 }
