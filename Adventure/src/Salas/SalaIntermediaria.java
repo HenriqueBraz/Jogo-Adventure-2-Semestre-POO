@@ -35,7 +35,6 @@ public class SalaIntermediaria extends Sala {
         descricao.append("usado pelos humanóides gigantes.\n");
         descricao.append("Há duas portas, uma a direita e uma a esquerda,\n");
         descricao.append("também de tamanho descomunal.\n");
-        descricao.append("O que você faz?\n");
 
         if (bombaJogada == true) {
 
@@ -157,5 +156,7 @@ public class SalaIntermediaria extends Sala {
         }
 
     }
+    
+     Scanner in = new Scanner(System.in);
 
 }

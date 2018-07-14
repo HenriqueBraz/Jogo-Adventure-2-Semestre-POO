@@ -69,16 +69,6 @@ public class Subsolo extends Sala {
 
         return descricao.toString();
     }
-    
-       @Override
-    public boolean pega(String nomeFerramenta) {
-        boolean ok = super.pega(nomeFerramenta);
-        if (ok) {
-            this.getFerramentas().remove(nomeFerramenta);
-            return true;
-        }
-        return false;
-    }
 
     public boolean usa(String ferramenta) {
 
