@@ -32,7 +32,6 @@ public class MesaninoHolografico extends Sala {
         descricao.append("a não ser três botões grandes e uma tela enorme, do\n");
         descricao.append("tamanho de 1/4 de 1/6 de 1/8 de um estádio de futebol\n");
         descricao.append("que parecem estar estragados ou oxidados pelo tempo.\n");
-        descricao.append("O que você faz?\n");
 
         if (displayConsertado == true) {
 
@@ -54,7 +53,7 @@ public class MesaninoHolografico extends Sala {
         }
         descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
         descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
-        
+
         return descricao.toString();
     }
 
@@ -75,7 +74,7 @@ public class MesaninoHolografico extends Sala {
             return false;
         }
 
-          if (f instanceof JogoChaves) {
+        if (f instanceof JogoChaves) {
             displayConsertado = true;
             return true;
         } else {

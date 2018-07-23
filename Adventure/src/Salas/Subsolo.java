@@ -50,8 +50,12 @@ public class Subsolo extends Sala {
             descricao.append("porém você nota uma grande janela no alto da sala, que não pode ser alcançada. \n");
             descricao.append("A sua direita você se depara com um esqueleto de um humanóide gigante,\n");
             descricao.append("morto há tempos para sua felicidade.\n");
-            descricao.append("Ao examinar o humanóide, você encontra uma \n");
-            descricao.append("BombaNeutrons escondida. Olha aí a sorte te ajudando de novo...\n");
+
+            if (super.getFerramentas().containsKey("BombaNeutrons") == true) {
+
+                descricao.append("Ao examinar o humanóide, você encontra uma \n");
+                descricao.append("BombaNeutrons escondida. Olha aí a sorte te ajudando de novo...\n");
+            }
             descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
             descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
         }
@@ -70,11 +74,21 @@ public class Subsolo extends Sala {
         return descricao.toString();
     }
 
+    @Override
+    public boolean pega(String nomeFerramenta) {
+        boolean ok = super.pega(nomeFerramenta);
+        if (ok) {
+            this.getFerramentas().remove(nomeFerramenta);
+            return true;
+        }
+        return false;
+    }
+
     public boolean usa(String ferramenta) {
 
         // pode usar somente a lanterna e pistolaLaser
         Ferramenta f = this.getMochila().usar(ferramenta);
-        if (f == null) { //|| !(f instanceof Lanterna || f instanceof PistolaLaser)) {
+        if (f == null || !(f instanceof Lanterna || f instanceof PistolaLaser)) {
             return false;
         }
         if (f instanceof Lanterna) {
@@ -101,7 +115,7 @@ public class Subsolo extends Sala {
         }
         return aux;
     }
-    
-     Scanner in = new Scanner(System.in);
+
+    Scanner in = new Scanner(System.in);
 
 }

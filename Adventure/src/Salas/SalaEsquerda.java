@@ -45,7 +45,10 @@ public class SalaEsquerda extends Sala {
             descricao.append("se consegue destravar a porta a sua frente, então você lembra\n");
             descricao.append("dos perigos que podem acontecer em um ambiente desconhecido.\n");
             descricao.append("Se quiser tentar a sorte, digite o comando DigitaSenha\n");
-            descricao.append("Você também acha um JogoChaves! Mais sorte do que juízo... \n");
+
+            if ( super.getFerramentas().containsKey( "JogoChaves" ) == true ) {
+                descricao.append("Você também acha um JogoChaves! Mais sorte do que juízo... \n");
+            }
             descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
 
         }
@@ -141,7 +144,7 @@ public class SalaEsquerda extends Sala {
             SalaEsquerda.senha = 2;
         } else if (senha == "56789") {
             SalaEsquerda.senha = 1;
-        } else if (senha != "56789" && senha != "01234") {
+        } else  {
             SalaEsquerda.senha = 3;
         }
     }

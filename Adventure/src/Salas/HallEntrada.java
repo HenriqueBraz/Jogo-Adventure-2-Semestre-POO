@@ -8,7 +8,6 @@ package Salas;
 import ClassesBasicas.Sala;
 import Ferramentas.Lanterna;
 import Ferramentas.PistolaLaser;
-
 import java.util.Scanner;
 
 /**
@@ -30,8 +29,13 @@ public class HallEntrada extends Sala {
         StringBuilder descricao = new StringBuilder();
         descricao.append("Voce esta no ").append(this.getNome()).append("\n");
         descricao.append("Parece uma sala completamente vazia. Há duas portas, uma a direita e outra a esquerda\n");
-        descricao.append("se ainda não pegou, pegue a suas\n");
-        descricao.append("PistolaLaser e sua Lanterna se ainda estiverem na nave\n");
+        
+        if (super.getFerramentas().containsKey("PistolaLaser") == true || super.getFerramentas().containsKey("Lanterna") == true) {
+
+            descricao.append("se ainda não pegou, pegue a sua PistolaLaser e sua Lanterna\n");
+
+        }
+
         descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
         descricao.append("Objetos: ").append(this.objetosDisponiveis().toString()).append("\n");
         descricao.append("Portas: ").append(this.portasDisponiveis().toString()).append("\n");
@@ -42,8 +46,8 @@ public class HallEntrada extends Sala {
     public boolean usa(String ferramenta) {
         return false;
     }
-    
-     @Override
+
+    @Override
     public boolean pega(String nomeFerramenta) {
         boolean ok = super.pega(nomeFerramenta);
         if (ok) {
@@ -52,7 +56,7 @@ public class HallEntrada extends Sala {
         }
         return false;
     }
-    
+
     Scanner in = new Scanner(System.in);
 
 }
