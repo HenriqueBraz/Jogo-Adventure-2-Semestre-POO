@@ -9,7 +9,7 @@ import ClassesBasicas.Ferramenta;
 import ClassesBasicas.Sala;
 import Ferramentas.JogoChaves;
 import Ferramentas.Lanterna;
-import static Salas.SalaEsquerda.senha;
+import Senhas.SenhasOpcoes;
 import java.util.Scanner;
 
 /**
@@ -19,7 +19,6 @@ import java.util.Scanner;
 public class SalaEsquerda extends Sala {
 
     private static boolean escuro;
-    protected static int senha;
     private JogoChaves jogoChaves;
 
     public SalaEsquerda() {
@@ -27,7 +26,6 @@ public class SalaEsquerda extends Sala {
         jogoChaves = new JogoChaves();
         this.getFerramentas().put(jogoChaves.getDescricao(), jogoChaves);
         escuro = true;
-        senha = 8;
 
     }
 
@@ -46,14 +44,14 @@ public class SalaEsquerda extends Sala {
             descricao.append("dos perigos que podem acontecer em um ambiente desconhecido.\n");
             descricao.append("Se quiser tentar a sorte, digite o comando DigitaSenha\n");
 
-            if ( super.getFerramentas().containsKey( "JogoChaves" ) == true ) {
+            if (super.getFerramentas().containsKey("JogoChaves") == true) {
                 descricao.append("Você também acha um JogoChaves! Mais sorte do que juízo... \n");
             }
             descricao.append("Ferramentas: ").append(this.ferramentasDisponiveis().toString()).append("\n");
 
         }
 
-        if (!escuro && senha == 1) {
+        if (!escuro && SenhasOpcoes.getSenha() == 1) {
 
             descricao.append("Você digita a senha 56789. A porta a sua frente abre \n");
             descricao.append(", e uma silhueta aparece a sua frente.Você não \n");
@@ -74,7 +72,7 @@ public class SalaEsquerda extends Sala {
             // throw new FimDeJogoException();
         }
 
-        if (!escuro && senha == 2) {
+        if (!escuro && SenhasOpcoes.getSenha() == 2) {
             descricao.append("\n");
             descricao.append(" Você digita a senha 01234 e a porta a frente se \n");
             descricao.append("abre, com a princesa Isthar a sua frente. Ela o \n");
@@ -88,7 +86,7 @@ public class SalaEsquerda extends Sala {
             // throw new FimDeJogoException();
         }
 
-        if (!escuro && senha == 3) {
+        if (!escuro && SenhasOpcoes.getSenha() == 3) {
             descricao.append("\n");
             descricao.append("Você digita a senha, coma esperança de ter a \n");
             descricao.append("princesa Isthar em seus braços novamente...\n");
@@ -121,7 +119,7 @@ public class SalaEsquerda extends Sala {
     }
 
     @Override
-    public boolean usa(String ferramenta) { // pode usar somente a lanterna
+    public boolean usa(String ferramenta) {
         Ferramenta f = this.getMochila().usar(ferramenta);
         if (f == null) {
             return false;
@@ -131,21 +129,6 @@ public class SalaEsquerda extends Sala {
             return true;
         } else {
             return false;
-        }
-    }
-    // método criado somente para essa classe
-
-    // classe desenvolvida para esta sala
-    public static void getSenhaFinal(String senha) {
-
-        if (senha == " ") {
-            System.out.println("Não pode estar em branco");
-        } else if (senha == "01234") {
-            SalaEsquerda.senha = 2;
-        } else if (senha == "56789") {
-            SalaEsquerda.senha = 1;
-        } else  {
-            SalaEsquerda.senha = 3;
         }
     }
 

@@ -100,18 +100,18 @@ public class Engine {
                     if (Salas.SalaEsquerda.getEscuro() == true) {
                         break;
                     } else {
-                        System.out.println("Digite a senha:\n");
+                        System.out.println("\n");
                         String senha = in.nextLine();
-                        Salas.SalaEsquerda.getSenhaFinal(senha);
+                        Senhas.SenhasOpcoes.Senha(senha);
                         break;
                     }
                 case "DigitaOpcao":
                     if (Salas.SalaIntermediaria.getBomba() == false) {
-                        break;   
+                        break;
                     } else {
-                        System.out.println("Digite a opçao:\n");
+                        System.out.println("\n");
                         String opcao = in.next();
-                        Salas.SalaIntermediaria.getOpcao(opcao);
+                        Senhas.SenhasOpcoes.Opcao(opcao);
                         break;
                     }
                 case "sai":

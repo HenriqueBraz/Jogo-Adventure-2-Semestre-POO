@@ -8,6 +8,7 @@ package Salas;
 import ClassesBasicas.Ferramenta;
 import ClassesBasicas.Sala;
 import Ferramentas.BombaNeutrons;
+import Senhas.SenhasOpcoes;
 //import adventure.FimDeJogoException;
 
 import java.util.Scanner;
@@ -56,7 +57,7 @@ public class SalaIntermediaria extends Sala {
 
         }
 
-        if (bombaJogada == true && opcao == "1") {
+        if (bombaJogada == true && SenhasOpcoes.getOpcao() == 1) {
 
             descricao.append("Você, rápido como um raio e feroz como um dragão de Draxila,\n");
             descricao.append("saca sua pistola fazendo um rombo no corpo do gigante\n");
@@ -75,7 +76,7 @@ public class SalaIntermediaria extends Sala {
             descricao.append("Fim de Jogo");
         }
 
-        if (bombaJogada == true && opcao == "2") {
+        if (bombaJogada == true && SenhasOpcoes.getOpcao() == 2) {
 
             descricao.append("Você começa a chorar e o seu medo faz com que você \n");
             descricao.append("urine nas calças.Infelizmente o gigante não se comove \n");
@@ -89,12 +90,12 @@ public class SalaIntermediaria extends Sala {
 
         }
 
-        if (bombaJogada == true && opcao == "3") {
+        if (bombaJogada == true && SenhasOpcoes.getOpcao() == 3) {
 
             descricao.append("Você se abaixa e rapidamente rola para baixo de um \n");
             descricao.append("dos computadores laterais.\n");
             descricao.append("Seu movimento é tão rápido que o gigante tropeça em  \n");
-            descricao.append("seus próprios pés");
+            descricao.append("seus próprios pés ");
             descricao.append("e cai violentamente, batendo a cabeça na porta da \n");
             descricao.append("esquerda, abrindo-a.\n");
             descricao.append("\n\n");
@@ -140,23 +141,6 @@ public class SalaIntermediaria extends Sala {
 
     }
 
-    // classe desenvolvida para esta sala
-    public static void getOpcao(String opcao) {
-
-        if (" ".equals(opcao)) {
-            System.out.println("Não pode estar em branco");
-        } else if ("1".equals(opcao)) {
-            SalaIntermediaria.opcao = "1";
-        } else if ("2".equals(opcao)) {
-            SalaIntermediaria.opcao = "2";
-        } else if ("3".equals(opcao)) {
-            SalaIntermediaria.opcao = "3";
-        } else {
-            System.out.println("Opção Inválida");
-        }
-
-    }
-    
-     Scanner in = new Scanner(System.in);
+    Scanner in = new Scanner(System.in);
 
 }
