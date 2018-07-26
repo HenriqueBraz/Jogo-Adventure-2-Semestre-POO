@@ -20,9 +20,9 @@ public class SenhasOpcoes {
             System.out.println("Não pode estar em branco\n");
 
         } else if ("01234".equals(senha)) {
-            SenhasOpcoes.senha = 1;
-        } else if ("56789".equals(senha)) {
             SenhasOpcoes.senha = 2;
+        } else if ("56789".equals(senha)) {
+            SenhasOpcoes.senha = 1;
         } else {
             SenhasOpcoes.senha = 3;
         }
